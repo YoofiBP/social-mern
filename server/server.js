@@ -2,13 +2,14 @@
 // import devBundle from "./devBundle";
 import mongoose from "mongoose";
 import app from "./express";
+import config from './config/config'
 
-const PORT = process.env.PORT || 3000;
+const PORT = config.port;
 
-const DB_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/social'
+const DB_URL = config.mongoUri;
 // devBundle.compile(app);
-mongoose.connect(DB_URL).then(function(){
-    console.log('Database connection established');
+mongoose.connect(DB_URL, {
+
 })
 
 app.listen(PORT, (err) => {
