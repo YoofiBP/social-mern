@@ -1,21 +1,27 @@
-
 // import devBundle from "./devBundle";
 import mongoose from "mongoose";
 import app from "./express";
 import config from './config/config'
 
-const PORT = config.port;
-
-const DB_URL = config.mongoUri;
 // devBundle.compile(app);
-mongoose.connect(DB_URL, {
+mongoose.connect(config.mongoUri);
 
+mongoose.connection.on('connected', () => {
+    console.info('Database connection established')
+});
+
+mongoose.connection.on('error', () => {
+    console.error('There was an error establishing the  database connection')
 })
 
-app.listen(PORT, (err) => {
+mongoose.connection.on('disconnected', () => {
+    console.info('Database connection lost');
+})
+
+app.listen(config.port, (err) => {
     if(err){
         console.error(err);
     }else {
-        console.info(`Application running on PORT: ${PORT}`)
+        console.info(`Application running on PORT: ${config.port}`)
     }
 })
