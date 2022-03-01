@@ -6,6 +6,9 @@ import helmet from "helmet";
 import compress from "compression";
 import cors from "cors";
 import template from "../template";
+import userRouter from "./routes/user.routes";
+import authRouter from "./routes/auth.routes";
+import errorController from './controllers/error.controller';
 
 const app = express();
 
@@ -15,6 +18,11 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(compress());
 app.use(cors());
+
+app.use('/', authRouter);
+app.use(userRouter);
+
+app.use(errorController.handleError)
 
 app.get('/', (req, res) => {
     res.status(200).send(template());
