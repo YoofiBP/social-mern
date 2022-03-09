@@ -10,7 +10,7 @@ export default () => `
   href="https://fonts.googleapis.com/icon?family=Material+Icons"
 />
 <body>
-<div id="root">Hello</div>
+<div id="root"></div>
 <script type="text/javascript" src="/dist/bundle.js"></script>
 </body>
 </html>

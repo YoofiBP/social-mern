@@ -1,5 +1,6 @@
-import {createTheme} from "@mui/material";
-import {pink} from "@mui/material/colors";
+import {createTheme} from "@material-ui/core";
+import {pink} from "@material-ui/core/colors";
+
 
 const theme = createTheme({
     typography: {
