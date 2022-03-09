@@ -1,9 +1,10 @@
-// import devBundle from "./devBundle";
+import devBundle from "./devBundle";
 import mongoose from "mongoose";
 import app from "./express";
 import config from './config/config'
 
-// devBundle.compile(app);
+
+devBundle.compile(app);
 mongoose.connect(config.mongoUri);
 
 mongoose.connection.on('connected', () => {
@@ -18,10 +19,11 @@ mongoose.connection.on('disconnected', () => {
     console.info('Database connection lost');
 })
 
+
 app.listen(config.port, (err) => {
-    if(err){
+    if (err) {
         console.error(err);
-    }else {
+    } else {
         console.info(`Application running on PORT: ${config.port}`)
     }
 })

@@ -4,7 +4,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpackConfig from './../webpack.config.client';
 
 const compile = (app) => {
-    if(process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development') {
         const compiler = webpack(webpackConfig);
         const middleware = webpackMiddleware(compiler, {
             publicPath: webpackConfig.output.publicPath

@@ -9,7 +9,6 @@ const index = async (req, res) => {
         console.error(err);
         res.status(500).send(err)
     }
-
 };
 
 const store = async (req, res) => {
