@@ -1,9 +1,9 @@
 import React from 'react';
 import {Card, makeStyles, Typography, CardMedia, CardContent} from "@material-ui/core";
-import Menu from "./components/Menu";
+import Menu from "../components/Menu";
 
 
-const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles(theme => ({
     card: {
         maxWidth: 600,
         margin: 'auto',
@@ -28,7 +28,8 @@ const Home = () => {
                 <Typography variant={"h6"} className={classes.title}>
                     MERN Skeleton
                 </Typography>
-                <CardMedia className={classes.media} src={''} title={'Bicycle'}/>
+                <CardMedia className={classes.media} component={'img'} src={'https://picsum.photos/id/237/200/300'}
+                           title={'Bicycle'}/>
 
                 <CardContent>
                     <Typography variant={'body2'} component={'p'}>

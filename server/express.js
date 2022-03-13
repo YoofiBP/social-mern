@@ -10,6 +10,7 @@ import userRouter from "./routes/user.routes";
 import authRouter from "./routes/auth.routes";
 import errorController from './controllers/error.controller';
 import path from "path";
+import React from 'react';
 
 const app = express();
 
@@ -27,8 +28,9 @@ app.use(userRouter);
 
 app.use(errorController.handleError)
 
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, '/dist')));
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 
+//TODO: Implement SSR
 app.get('/', (req, res) => {
     res.status(200).send(template());
 })
